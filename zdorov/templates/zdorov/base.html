@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'zdorov/css/styles.css' %}">
+
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<h1>First commit</h1>
+
+<ul>
+    <li><a href="{% url 'home' %}">Главная страница</a></li>
+    {% for m in menu %}
+    <li><a href="{% url m.url_name %}">{{ m.title }}</a></li>
+    {% endfor %}
+</ul>
+
+{% block content %}{% endblock %}
+</body>
+</html>
